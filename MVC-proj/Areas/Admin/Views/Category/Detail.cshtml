@@ -1,0 +1,21 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Model.Name</h4>
+                <p class="card-description">
+                    
+                </p>
+                <p>
+                    @Html.Raw(Model.Description)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

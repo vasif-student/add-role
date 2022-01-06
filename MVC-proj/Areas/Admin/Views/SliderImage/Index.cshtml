@@ -1,0 +1,49 @@
+﻿@model List<SliderImage>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <a class="btn btn-primary btn-lg" asp-action="CreateMultiple">Add Multiple Images</a>
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Basic Table</h4>
+                    <p class="card-description">
+                        Add class <code>.table</code>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Order</th>
+                                    <th>Image</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    order++;
+                                    <tr>
+                                        <td>@order</td>
+                                        <td><img src="~/img/@item.Image" style="width:200px; height:200px; border-radius:50%; object-fit:cover;"/></td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-controller="SliderImage" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                                            <a class="btn btn-warning" asp-controller="SliderImage" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                            <a class="btn btn-danger" asp-controller="SliderImage" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

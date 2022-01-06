@@ -1,0 +1,57 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <ul id="search-container" class="list-unstyled py-3">
+                    <li class="d-flex px-3">
+                        <input id="search__input" type="text" placeholder="Search Category">
+                        <i class="fas fa-search my-auto" id="search"></i>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <h4 class="card-title">Basic Table</h4>
+                    <p class="card-description">
+                        Add class <code>.table</code>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Order</th>
+                                    <th>Id</th>
+                                    <th>Name.</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    order++;
+                                    <tr>
+                                        <td>@order</td>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-controller="Category" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                                            <a class="btn btn-warning" asp-controller="Category" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                            <a class="btn btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

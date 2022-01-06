@@ -1,0 +1,54 @@
+﻿@model List<Layout>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Basic Table</h4>
+                    <p class="card-description">
+                        Add class <code>.table</code>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Order</th>
+                                    <th>Facebook</th>
+                                    <th>Facebook URL</th>
+                                    <th>LinkedIn</th>
+                                    <th>LinkedIn URL</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    order++;
+                                    <tr>
+                                        <td>@order</td>
+                                        <td>@item.LinkedinTitle</td>
+                                        <td>@item.LinkedinUrl</td>
+                                        <td>@item.FacebookTitle</td>
+                                        <td>@item.FacebookUrl</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-controller="Layout" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                                            <a class="btn btn-warning">Update</a>
+                                            <a class="btn btn-danger" asp-controller="Layout" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

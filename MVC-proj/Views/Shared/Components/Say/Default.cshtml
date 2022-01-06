@@ -1,0 +1,21 @@
+﻿@model List<Say>
+
+@foreach (var item in Model)
+{
+    <div>
+        <div class="item text-center">
+            <div class="img d-flex justify-content-center">
+                <img src="~/img/@item.Image" alt="">
+            </div>
+            <div class="text text-muted pt-3 pb-5">
+                <i>
+                    @item.Text
+                </i>
+            </div>
+            <div class="author">
+                <h6>@item.Title</h6>
+                <p class="text-black-50">@item.Desc</p>
+            </div>
+        </div>
+    </div>
+}

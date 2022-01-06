@@ -1,0 +1,41 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create New Slider</h4>
+                    <form enctype="multipart/form-data" class="forms-sample" method="post" asp-controller="Slider" asp-action="Create">
+                        <div class="form-group">
+                            <label asp-for="Title">Title</label>
+                            <input class="form-control" asp-for="Title" placeholder="Name">
+                            <span class="text-danger" asp-validation-for="Title"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Desc">Description</label>
+                            <input class="form-control" asp-for="Desc" placeholder="Description">
+                            <span class="text-danger" asp-validation-for="Desc"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="File">Sign</label>
+                            <input class="form-control" asp-for="File" placeholder="Sign" accept="image/*">
+                            <span class="text-danger" asp-validation-for="File"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidatePartial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+}
+

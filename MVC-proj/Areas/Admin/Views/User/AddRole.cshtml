@@ -1,0 +1,30 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "AddRole";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add Role</h4>
+                    <form class="forms-sample" method="post" asp-controller="User" asp-action="AddRole">
+                        @foreach (var role in Model)
+                        {
+                        <div class="form-check">
+                            <input value="@role" class="form-check-input" type="radio" name="role" id="role">
+                            <label class="form-check-label" for="role">
+                                @role
+                            </label>
+                        </div>
+                        }
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <button asp-controller="User" asp-action="Index" class="btn btn-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

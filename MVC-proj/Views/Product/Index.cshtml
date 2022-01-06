@@ -1,0 +1,28 @@
+﻿@model MVC_proj.ViewModels.ProductIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section id="product-list-title">
+        <div class="container py-4">
+            <div class="row py-5">
+                <div class="col-12">
+                    <h1>Product List</h1>
+                    <i class="text-muted">Where flowers are our inspiration</i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="product-list">
+        <input id="skipCount" type="hidden" value="@ViewBag.skipCount" />
+        <div class="container">
+            <div class="row" id="products-cont">
+                @await Component.InvokeAsync("Product") 
+            </div>
+            <div class="justify-content-center d-flex">
+                <button id="loadmorebtn" class="btn btn-primary">Load More</button>
+            </div>
+        </div>
+    </section>
+</main>
